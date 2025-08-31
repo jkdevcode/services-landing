@@ -1,65 +1,93 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-import { Trans, useTranslation } from "react-i18next";
+import React from "react";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import { motion } from "framer-motion";
+
+import { fadeIn, textVariant } from "../utils/motion";
 import DefaultLayout from "@/layouts/default";
+/* import heroImage from "../assets/hero-image.png" */
 
-export default function IndexPage() {
-  const { t } = useTranslation();
-
+const Hero = () => {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <span className={title()}>{t("make")}&nbsp;</span>
-          <span className={title({ color: "violet" })}>
-            {t("beautiful")}&nbsp;
-          </span>
-          <br />
-          <span className={title()}>
-            <Trans i18nKey="websites-regardless-of-your-design-experience" />
-          </span>
-          <div className={subtitle({ class: "mt-4" })}>
-            <Trans i18nKey="beautiful-fast-and-modern-react-ui-library" />
+      <section
+        className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pb-16 container mx-auto"
+        id="home"
+      >
+        {/* Left Column */}
+        <div className="w-full md:w-1/2 space-y-8">
+          <motion.div
+            initial="hidden"
+            variants={fadeIn("right", 0.2)}
+            whileInView="show"
+          >
+            {/* Star badge */}
+            <div className="flex items-center gap-2 bg-gray-50 w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
+              <span className="text-blue-600 group-hover:scale-110 transition-transform">
+                ★
+              </span>
+              <span className="text-sm font-medium">Jump start your growth</span>
+            </div>
+          </motion.div>
+
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            initial="hidden"
+            variants={textVariant(0.3)}
+            whileInView="show"
+          >
+            We boost the growth for{" "}
+            <span className="text-blue-600 relative inline-block">
+              Startup to Fortune 500
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-200/60"></span>
+            </span>{" "}
+            Companies
+            <span className="inline-block ml-2 animate-pulse">⏰</span>
+          </motion.h1>
+
+          <motion.p
+            className="text-gray-600 text-lg md:text-xl max-w-xl"
+            initial="hidden"
+            variants={fadeIn("up", 0.4)}
+            whileInView="show"
+          >
+            Get the most accurate leads, sales people training and conversions,
+            tools and more — all within the same one billing.
+          </motion.p>
+
+          <motion.div
+            className="flex gap-3 max-w-md"
+            initial="hidden"
+            variants={fadeIn("up", 0.5)}
+            whileInView="show"
+          >
+            {/* Email Form */}
+            <input
+              className="flex-1 px-6 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all text-gray-600"
+              placeholder="Email address"
+              type="email"
+            />
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-blue-100 active:scale-95">
+              →
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right Column - Images */}
+        <motion.div
+          className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-12"
+          initial="hidden"
+          variants={fadeIn("left", 0.5)}
+          whileInView="show"
+        >
+          <div className="relative">
+            <div className="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
+              <span className="text-blue-600 text-4xl">📈</span>
+            </div>
           </div>
-        </div>
-
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig().links.docs}
-          >
-            <Trans i18nKey="documentation" />
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig().links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              <Trans i18nKey="get-started-by-editing" />{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
-        </div>
+        </motion.div>
       </section>
     </DefaultLayout>
   );
-}
+};
+
+export default Hero;

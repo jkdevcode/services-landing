@@ -13,10 +13,9 @@ export const fadeIn = (
       x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         duration: 1.25,
         delay: delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
       },
     },
   };
@@ -39,7 +38,7 @@ export const staggerContainer = (
 
 export const slideIn = (
   direction: "left" | "right" | "up" | "down",
-  type: string,
+  type: "spring" | "tween" | "inertia",
   delay: number,
   duration: number,
 ) => {
@@ -71,7 +70,7 @@ export const textVariant = (delay: number) => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         duration: 1.25,
         delay,
       },
@@ -89,7 +88,7 @@ export const scale = (delay: number) => {
       scale: 1,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         duration: 1.25,
         delay,
       },
