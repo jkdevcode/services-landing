@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { fadeIn, textVariant } from "../utils/motion";
 import DefaultLayout from "@/layouts/default";
-/* import heroImage from "../assets/hero-image.png" */
+import heroImage from "../assets/hero-image.webp"
 
 const Hero = () => {
   return (
@@ -80,9 +80,11 @@ const Hero = () => {
           whileInView="show"
         >
           <div className="relative">
-            <div className="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
-              <span className="text-blue-600 text-4xl">📈</span>
-            </div>
+            <img
+              alt="Team meeting"
+              className="rounded-lg relative z-10 hover:scale-[1.02] transition-transform duration-300"
+              src={heroImage}
+            />
           </div>
         </motion.div>
       </section>
