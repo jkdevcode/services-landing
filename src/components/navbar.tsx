@@ -20,9 +20,9 @@ import { I18nIcon, LanguageSwitch } from "./language-switch";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
-  TwitterIcon,
+  EmailIcon,
+  LinkedInIcon,
   GithubIcon,
-  DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
 } from "@/components/icons";
@@ -71,7 +71,7 @@ export const Navbar = () => {
               <Link
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}
@@ -90,17 +90,13 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-2">
           <Link
             isExternal
-            href={siteConfig().links.twitter}
-            title={t("twitter")}
+            href={siteConfig().links.linkedin}
+            title={t("linkedin")}
           >
-            <TwitterIcon className="text-default-500" />
+            <LinkedInIcon className="text-default-500" />
           </Link>
-          <Link
-            isExternal
-            href={siteConfig().links.discord}
-            title={t("discord")}
-          >
-            <DiscordIcon className="text-default-500" />
+          <Link isExternal href={siteConfig().links.email} title={t("email")}>
+            <EmailIcon className="text-default-500" />
           </Link>
           <Link isExternal href={siteConfig().links.github} title={t("github")}>
             <GithubIcon className="text-default-500" />

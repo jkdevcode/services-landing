@@ -1,10 +1,9 @@
 import React from "react";
-
 import { motion } from "framer-motion";
 
 import { fadeIn, textVariant } from "../utils/motion";
-import DefaultLayout from "@/layouts/default";
 import heroImage from "../assets/hero-image.webp"
+import DefaultLayout from "@/layouts/default";
 
 const Hero = () => {
   return (

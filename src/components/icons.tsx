@@ -65,6 +65,48 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({
   );
 };
 
+export const LinkedInIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      height={size || height}
+      viewBox="0 0 24 24"
+      width={size || width}
+      {...props}
+    >
+      <path
+        d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17V10.5H6V17H8.34ZM7.16 9.39C8 9.39 8.61 8.77 8.61 8C8.61 7.23 8 6.61 7.16 6.61C6.33 6.61 5.72 7.23 5.72 8C5.72 8.77 6.33 9.39 7.16 9.39ZM18 17V13.33C18 11.36 16.95 10.5 15.51 10.5C14.46 10.5 13.84 11.06 13.57 11.56H13.54V10.5H11.26V17H13.6V13.65C13.6 12.68 13.97 12.07 14.84 12.07C15.68 12.07 15.92 12.74 15.92 13.65V17H18Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const EmailIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      height={size || height}
+      viewBox="0 0 24 24"
+      width={size || width}
+      {...props}
+    >
+      <path
+        d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 export const GithubIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,
