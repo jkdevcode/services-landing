@@ -34,5 +34,11 @@
   "cookie-policy": "Política de cookies.",
   "accept-all": "Aceptar todo",
   "reject": "Rechazar",
-  "cookie-consent-title": "Política de cookies"
+  "cookie-consent-title": "Política de cookies",
+
+  "jump-start-growth": "Impulsa tu crecimiento",
+  "hero-title": "Impulsamos el crecimiento de <0>De startup a Fortune 500</0> Empresas <1>⏰</1>",
+  "hero-subtitle": "Obtén los contactos más precisos, capacitación para tu equipo de ventas, herramientas y más, todo en una sola suscripción.",
+  "email-placeholder": "Correo electrónico",
+  "hero-image-alt": "Reunión de equipo"
 }

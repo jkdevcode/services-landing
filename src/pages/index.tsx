@@ -1,11 +1,14 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { Trans, useTranslation } from "react-i18next";
 
 import { fadeIn, textVariant } from "../utils/motion";
-import heroImage from "../assets/hero-image.webp"
+import heroImage from "../assets/hero-image.webp";
+
 import DefaultLayout from "@/layouts/default";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <DefaultLayout>
       <section
@@ -20,11 +23,13 @@ const Hero = () => {
             whileInView="show"
           >
             {/* Star badge */}
-            <div className="flex items-center gap-2 bg-gray-50 w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
+            <div className="flex items-center gap-2  w-fit px-4 py-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer group">
               <span className="text-blue-600 group-hover:scale-110 transition-transform">
                 ★
               </span>
-              <span className="text-sm font-medium">Jump start your growth</span>
+              <span className="text-sm font-medium">
+                {t("jump-start-growth")}
+              </span>
             </div>
           </motion.div>
 
@@ -34,13 +39,15 @@ const Hero = () => {
             variants={textVariant(0.3)}
             whileInView="show"
           >
-            We boost the growth for{" "}
-            <span className="text-blue-600 relative inline-block">
-              Startup to Fortune 500
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-200/60"></span>
-            </span>{" "}
-            Companies
-            <span className="inline-block ml-2 animate-pulse">⏰</span>
+            <Trans
+              i18nKey="hero-title"
+              components={[
+                // 0 -> texto azul con subrayado ajustado al ancho del texto
+                <span className="inline-block text-blue-600 border-b-2 border-blue-200/60 pb-1" />,
+                // 1 -> emoji reloj animado
+                <span className="inline-block ml-2 animate-pulse" />
+              ]}
+            />
           </motion.h1>
 
           <motion.p
@@ -49,8 +56,7 @@ const Hero = () => {
             variants={fadeIn("up", 0.4)}
             whileInView="show"
           >
-            Get the most accurate leads, sales people training and conversions,
-            tools and more — all within the same one billing.
+            {t("hero-subtitle")}
           </motion.p>
 
           <motion.div
@@ -62,7 +68,7 @@ const Hero = () => {
             {/* Email Form */}
             <input
               className="flex-1 px-6 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all text-gray-600"
-              placeholder="Email address"
+              placeholder={t("email-placeholder")}
               type="email"
             />
             <button className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-blue-100 active:scale-95">
@@ -80,7 +86,7 @@ const Hero = () => {
         >
           <div className="relative">
             <img
-              alt="Team meeting"
+              alt={t("hero-image-alt")}
               className="rounded-lg relative z-10 hover:scale-[1.02] transition-transform duration-300"
               src={heroImage}
             />
