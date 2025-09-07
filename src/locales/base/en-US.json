@@ -34,5 +34,11 @@
   "cookie-policy": "Cookie Policy.",
   "accept-all": "Accept All",
   "reject": "Reject",
-  "cookie-consent-title": "Cookies policy"
+  "cookie-consent-title": "Cookies policy",
+
+  "jump-start-growth": "Jump start your growth",
+  "hero-title": "We boost the growth for <0>Startup to Fortune 500</0> Companies <1>⏰</1>",
+  "hero-subtitle": "Get the most accurate leads, sales people training and conversions, tools and more — all within the same one billing.",
+  "email-placeholder": "Email address",
+  "hero-image-alt": "Team meeting"
 }
