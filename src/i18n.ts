@@ -49,7 +49,7 @@ export const availableLanguages: AvailableLanguage[] = [
   { code: "en-US", nativeName: "English", isRTL: false, isDefault: true },
   /* { code: "fr-FR", nativeName: "Français", isRTL: false }, */
   { code: "es-ES", nativeName: "Español", isRTL: false },
-/*   { code: "zh-CN", nativeName: "中文", isRTL: false },
+  /*   { code: "zh-CN", nativeName: "中文", isRTL: false },
   { code: "ar-SA", nativeName: "العربية", isRTL: true },
   { code: "he-IL", nativeName: "עברית", isRTL: true }, */
 ];
