@@ -10,7 +10,7 @@ This is a template for creating applications using Vite 6 and HeroUI (v2).
 
 ## On Github Pages ?
 
-Ths plugin uses our [@sctg/vite-plugin-github-pages-spa](https://github.com/sctg-development/vite-plugin-github-pages-spa) Vite 6 plugin for handling the Github Pages limitations with SPA.  
+Ths plugin uses our [@sctg/vite-plugin-github-pages-spa](https://github.com/sctg-development/vite-plugin-github-pages-spa) Vite 6 plugin for handling the Github Pages limitations with SPA.
 
 ## With OAuth2 authentication ?
 
@@ -54,7 +54,8 @@ export default function ContactPage() {
             <Trans t={t}>contact</Trans>
           </h1>
           <p className="mt-4 text-default-600">
-            This is the contact page content. You can add your contact form or information here.
+            This is the contact page content. You can add your contact form or
+            information here.
           </p>
         </div>
       </section>
@@ -71,7 +72,7 @@ Add the new page's translation key to each language file in the `src/locales/bas
 // Add to each language JSON file (en-US.json, fr-FR.json, etc.)
 {
   // ... existing translations
-  "contact": "Contact" // For English - adjust for other languages
+  "contact": "Contact", // For English - adjust for other languages
 }
 ```
 
@@ -142,7 +143,7 @@ export const siteConfig = () => ({
       href: "/profile",
     },
     // ... other mobile menu items
-    
+
     // Add the new page to mobile menu (before logout)
     {
       label: i18next.t("contact"),
@@ -222,7 +223,7 @@ In `src/i18n.ts`, add a case for your new language in the `loadPath` function:
 backend: {
   loadPath: (lng, ns) => {
     let url: URL = new URL("./locales/base/en-US.json", import.meta.url);
-    
+
     switch (ns[0]) {
       case "base":
         switch (lng[0]) {
@@ -240,7 +241,7 @@ backend: {
       default:
         url = new URL("./locales/base/en-US.json", import.meta.url);
     }
-    
+
     return url.toString();
   },
 }
@@ -301,14 +302,19 @@ The `LanguageSwitch` component allows users to switch between the available lang
 To use the `LanguageSwitch` component in your application, simply include it in your JSX:
 
 ```tsx
-<LanguageSwitch availableLanguages={[{ code: "en-US", nativeName: "English", isRTL: false, isDefault: true },{ code: "fr-FR", nativeName: "Français", isRTL: false }]} />
+<LanguageSwitch
+  availableLanguages={[
+    { code: "en-US", nativeName: "English", isRTL: false, isDefault: true },
+    { code: "fr-FR", nativeName: "Français", isRTL: false },
+  ]}
+/>
 ```
 
 or more simply using the `availableLanguages` array defined in the `src/i18n.ts` file:
 
 ```tsx
 import { availableLanguages } from "@/i18n";
-<LanguageSwitch availableLanguages={availableLanguages} />
+<LanguageSwitch availableLanguages={availableLanguages} />;
 ```
 
 This component will render a dropdown menu with the available languages, allowing users to switch languages easily.
@@ -370,15 +376,16 @@ You can access the cookie consent status in any component using the `useCookieCo
 import { useCookieConsent } from "@/contexts/cookie-consent-context";
 
 const MyComponent = () => {
-  const { cookieConsent, acceptCookies, rejectCookies, resetCookieConsent } = useCookieConsent();
-  
+  const { cookieConsent, acceptCookies, rejectCookies, resetCookieConsent } =
+    useCookieConsent();
+
   // Load analytics only if cookies are accepted
   useEffect(() => {
     if (cookieConsent === "accepted") {
       // Initialize analytics, tracking scripts, etc.
     }
   }, [cookieConsent]);
-  
+
   // ...rest of your component
 };
 ```
@@ -392,7 +399,7 @@ const MyComponent = () => {
 ## Tailwind CSS 4
 
 This template uses Tailwind CSS 4, which is a utility-first CSS framework. You can customize the styles by modifying the `tailwind.config.js` file.  
-Currently HeroUI uses Tailwind CSS 3, but [@winchesHe](https://github.com/winchesHe)  create a port of HeroUI to Tailwind CSS 4, you can find it [here](https://github.com/heroui-inc/heroui/pull/4656), HeroUI packages are available at <https://github.com/heroui-inc/heroui/pull/4656#issuecomment-2651218074>.
+Currently HeroUI uses Tailwind CSS 3, but [@winchesHe](https://github.com/winchesHe) create a port of HeroUI to Tailwind CSS 4, you can find it [here](https://github.com/heroui-inc/heroui/pull/4656), HeroUI packages are available at <https://github.com/heroui-inc/heroui/pull/4656#issuecomment-2651218074>.
 
 ## How to Use
 

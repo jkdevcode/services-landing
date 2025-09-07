@@ -45,7 +45,7 @@ const Hero = () => {
                 // 0 -> texto azul con subrayado ajustado al ancho del texto
                 <span className="inline-block text-blue-600 border-b-2 border-blue-200/60 pb-1" />,
                 // 1 -> emoji reloj animado
-                <span className="inline-block ml-2 animate-pulse" />
+                <span className="inline-block ml-2 animate-pulse" />,
               ]}
             />
           </motion.h1>
