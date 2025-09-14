@@ -1,9 +1,14 @@
 import Hero from '@/components/Hero'
+import PurposeSection from '@/components/PurposeSection'
+import DefaultLayout from "@/layouts/default";
 
 function index() {
   return (
     <>
-      <Hero />
+      <DefaultLayout>
+        <Hero />
+        <PurposeSection />
+      </DefaultLayout>
     </>
   )
 }
