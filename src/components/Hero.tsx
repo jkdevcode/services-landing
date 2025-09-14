@@ -4,13 +4,10 @@ import { Trans, useTranslation } from "react-i18next";
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
 
-import DefaultLayout from "@/layouts/default";
-
 const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <DefaultLayout>
       <section
         className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pb-16 container mx-auto"
         id="home"
@@ -93,7 +90,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </section>
-    </DefaultLayout>
   );
 };
 
