@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import PurposeSection from '@/components/PurposeSection'
+import FeaturesSection from '@/components/FeaturesSection'
 import DefaultLayout from "@/layouts/default";
 
 function index() {
@@ -8,6 +9,7 @@ function index() {
       <DefaultLayout>
         <Hero />
         <PurposeSection />
+        <FeaturesSection />
       </DefaultLayout>
     </>
   )
