@@ -4,6 +4,7 @@ import { Link } from "@heroui/link";
 import { Trans, useTranslation } from "react-i18next";
 
 import { Navbar } from "@/components/navbar";
+import  Footer  from "@/components/Footer";
 export default function DefaultLayout({
   children,
 }: {
@@ -17,7 +18,8 @@ export default function DefaultLayout({
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3">
+      <Footer />
+      {/* <footer className="w-full flex items-center justify-center py-3">
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
@@ -29,7 +31,7 @@ export default function DefaultLayout({
           </span>
           <p className="text-primary">HeroUI</p>
         </Link>
-      </footer>
+      </footer> */}
     </div>
   );
 }
