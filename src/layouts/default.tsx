@@ -1,16 +1,16 @@
 import type React from "react";
 
-import { Link } from "@heroui/link";
-import { Trans, useTranslation } from "react-i18next";
+/* import { Link } from "@heroui/link";
+import { Trans, useTranslation } from "react-i18next"; */
 
 import { Navbar } from "@/components/navbar";
-import  Footer  from "@/components/Footer";
+import Footer from "@/components/Footer";
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { t } = useTranslation();
+  /* const { t } = useTranslation(); */
 
   return (
     <div className="relative flex flex-col h-screen">

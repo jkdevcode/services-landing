@@ -1,7 +1,7 @@
-import Hero from '@/components/Hero'
-import PurposeSection from '@/components/PurposeSection'
-import FeaturesSection from '@/components/FeaturesSection'
-import ServicesSection from '@/components/ServicesSection'
+import Hero from "@/components/Hero";
+import PurposeSection from "@/components/PurposeSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import ServicesSection from "@/components/ServicesSection";
 /* import Footer from '@/components/Footer' */
 import DefaultLayout from "@/layouts/default";
 
@@ -15,10 +15,8 @@ function index() {
         <ServicesSection />
         {/* <Footer /> */}
       </DefaultLayout>
-
     </>
-  )
+  );
 }
 
-export default index
-
+export default index;
