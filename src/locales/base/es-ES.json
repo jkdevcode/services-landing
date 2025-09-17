@@ -72,5 +72,27 @@
   "service-automation-desc": "El pequeño texto ciego debería darse la vuelta y regresar.",
   "service-infographics-title": "Infografías",
   "service-infographics-desc": "Nada de lo que decía la copia podía convencerla.",
-  "service-learn-more": "SABER MÁS"
+  "service-learn-more": "SABER MÁS",
+
+  "footer-brand": "El Próximo Diseño",
+  "footer-description": "La copia advirtió al Pequeño Texto Ciego, que de donde venía ya había sido reescrito mil veces.",
+  "footer-company": "Compañía",
+  "footer-company-about": "Acerca de",
+  "footer-company-terms": "Términos de uso",
+  "footer-company-privacy": "Política de privacidad",
+  "footer-company-how": "Cómo funciona",
+  "footer-company-contact": "Contáctanos",
+  "footer-gethelp": "Ayuda",
+  "footer-gethelp-support": "Carrera de soporte",
+  "footer-gethelp-24h": "Servicio 24h",
+  "footer-gethelp-chat": "Chat rápido",
+  "footer-support": "Soporte",
+  "footer-support-faq": "Preguntas frecuentes",
+  "footer-support-policy": "Política",
+  "footer-support-business": "Negocios",
+  "footer-contact": "Contacto",
+  "footer-contact-whatsapp": "WhatsApp",
+  "footer-contact-support24": "Soporte 24",
+  "footer-rights": "Derechos de autor © {{year}} codetutorbd.com",
+  "footer-created": "Creado por Md Al Mamun"
 }

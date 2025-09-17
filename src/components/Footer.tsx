@@ -1,29 +1,32 @@
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const footerLinks = {
     company: [
-      { name: "About", href: "#" },
-      { name: "Terms of Use", href: "#" },
-      { name: "Privacy Policy", href: "#" },
-      { name: "How it Works", href: "#" },
-      { name: "Contact Us", href: "#" },
+      { name: t("footer-company-about"), href: "#" },
+      { name: t("footer-company-terms"), href: "#" },
+      { name: t("footer-company-privacy"), href: "#" },
+      { name: t("footer-company-how"), href: "#" },
+      { name: t("footer-company-contact"), href: "#" },
     ],
     getHelp: [
-      { name: "Support Carrer", href: "#" },
-      { name: "24h Service", href: "#" },
-      { name: "Quick Chat", href: "#" },
+      { name: t("footer-gethelp-support"), href: "#" },
+      { name: t("footer-gethelp-24h"), href: "#" },
+      { name: t("footer-gethelp-chat"), href: "#" },
     ],
     support: [
-      { name: "FAQ", href: "#" },
-      { name: "Policy", href: "#" },
-      { name: "Business", href: "#" },
+      { name: t("footer-support-faq"), href: "#" },
+      { name: t("footer-support-policy"), href: "#" },
+      { name: t("footer-support-business"), href: "#" },
     ],
     contact: [
-      { name: "WhatsApp", href: "#" },
-      { name: "Support 24", href: "#" },
+      { name: t("footer-contact-whatsapp"), href: "#" },
+      { name: t("footer-contact-support24"), href: "#" },
     ],
   };
 
@@ -47,14 +50,15 @@ const Footer = () => {
             >
               <div className="w-4 h-4 bg-yellow-600 rounded-full opacity-75"></div>
               <div className="w-4 h-4 bg-red-500 rounded-full -ml-2"></div>
-              <span className="text-xl font-medium ml-1">The Next Design</span>
+              <span className="text-xl font-medium ml-1">
+                {t("footer-brand")}
+              </span>
             </motion.div>
             <motion.p
               variants={fadeIn("up", 0.6)}
               className="text-gray-600 mb-6"
             >
-              The copy warned the Little Blind Text, that where it came from it
-              would have been rewritten a thousand times.
+              {t("footer-description")}
             </motion.p>
             <motion.div variants={fadeIn("up", 0.7)} className="flex gap-4">
               <motion.a
@@ -94,7 +98,7 @@ const Footer = () => {
                       variants={textVariant(0.2)}
                       className="text-lg font-medium mb-4"
                     >
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                      {t(`footer-${category.toLowerCase()}`)}
                     </motion.h3>
                     <motion.ul
                       variants={fadeIn("up", 0.4)}
@@ -116,7 +120,7 @@ const Footer = () => {
                       ))}
                     </motion.ul>
                   </motion.div>
-                ),
+                )
               )}
             </div>
           </motion.div>
@@ -135,13 +139,13 @@ const Footer = () => {
               variants={fadeIn("right", 1.0)}
               className="text-gray-600 text-sm"
             >
-              Copyright © {new Date().getFullYear()} codetutorbd.com
+              {t("footer-rights", { year: new Date().getFullYear() })}
             </motion.p>
             <motion.p
               variants={fadeIn("left", 1.0)}
               className="text-gray-600 text-sm"
             >
-              Created by Md Al Mamun
+              {t("footer-created")}
             </motion.p>
           </motion.div>
         </motion.div>
