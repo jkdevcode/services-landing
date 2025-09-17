@@ -72,5 +72,27 @@
   "service-automation-desc": "Little Blind Text should turn around and return.",
   "service-infographics-title": "Infographics",
   "service-infographics-desc": "Nothing the copy said could convince her.",
-  "service-learn-more": "LEARN MORE"
+  "service-learn-more": "LEARN MORE",
+
+  "footer-brand": "The Next Design",
+  "footer-description": "The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.",
+  "footer-company": "Company",
+  "footer-company-about": "About",
+  "footer-company-terms": "Terms of Use",
+  "footer-company-privacy": "Privacy Policy",
+  "footer-company-how": "How it Works",
+  "footer-company-contact": "Contact Us",
+  "footer-gethelp": "Get Help",
+  "footer-gethelp-support": "Support Carrer",
+  "footer-gethelp-24h": "24h Service",
+  "footer-gethelp-chat": "Quick Chat",
+  "footer-support": "Support",
+  "footer-support-faq": "FAQ",
+  "footer-support-policy": "Policy",
+  "footer-support-business": "Business",
+  "footer-contact": "Contact",
+  "footer-contact-whatsapp": "WhatsApp",
+  "footer-contact-support24": "Support 24",
+  "footer-rights": "Copyright © {{year}} codetutorbd.com",
+  "footer-created": "Created by Md Al Mamun"
 }
