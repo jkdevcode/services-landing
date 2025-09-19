@@ -5,6 +5,8 @@ import { FiSettings } from "react-icons/fi";
 import { BiTime } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
+import { Button } from "@heroui/button";
+import { CheckboxGroup, Checkbox } from "@heroui/checkbox";
 
 const ServicesSection = () => {
   const { t } = useTranslation();
@@ -60,35 +62,32 @@ const ServicesSection = () => {
             {t("services-subtitle")}
           </motion.p>
 
-          <motion.div variants={fadeIn("up", 0.6)} className="space-y-3">
-            <motion.div
-              variants={fadeIn("right", 0.7)}
-              className="flex items-center gap-2"
+          <motion.div variants={fadeIn("up", 0.6)}>
+            <CheckboxGroup
+              isDisabled
+              defaultValue={["ux", "dev"]}
+              className="gap-3"
             >
-              <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
-              </div>
-              <span className="text-gray-600">{t("services-list-ux")}</span>
-            </motion.div>
-            <motion.div
-              variants={fadeIn("right", 0.8)}
-              className="flex items-center gap-2"
-            >
-              <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
-              </div>
-              <span className="text-gray-600">{t("services-list-dev")}</span>
-            </motion.div>
+              <Checkbox value="ux" className="text-gray-600">
+                {t("services-list-ux")}
+              </Checkbox>
+              <Checkbox value="dev" className="text-gray-600">
+                {t("services-list-dev")}
+              </Checkbox>
+            </CheckboxGroup>
           </motion.div>
 
-          <motion.button
-            variants={fadeIn("up", 0.9)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-8 bg-indigo-600 text-white px-8 py-3 cursor-pointer rounded-full hover:bg-indigo-700 transition-colors"
+          {/* <motion.div variants={fadeIn("up", 0.9)}> */}
+          <Button
+            className="mt-8"
+            color="primary"
+            size="lg"
+            variant="shadow"
+            radius="full"
           >
             {t("services-button")}
-          </motion.button>
+          </Button>
+          {/* </motion.div> */}
         </motion.div>
 
         {/* Services Grid */}
@@ -101,7 +100,7 @@ const ServicesSection = () => {
               key={index}
               variants={fadeIn("up", 0.3 * (index + 1))}
               whileHover={{ scale: 1.05 }}
-              className="bg-white max-w-72 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-black max-w-72 cursor-pointer rounded-2xl p-6 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-white/20 transition-shadow duration-300"
             >
               <motion.div
                 variants={fadeIn("down", 0.4 * (index + 1))}
