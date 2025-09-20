@@ -37,7 +37,7 @@ const FeaturesSection = () => {
         >
           {t("features-title")}
         </motion.h2>
-        <motion.p variants={fadeIn("up", 0.4)} className="text-gray-600">
+        <motion.p variants={fadeIn("up", 0.4)} className="text-gray-600 dark:text-gray-300">
           {t("features-subtitle")}
         </motion.p>
       </motion.div>
@@ -75,7 +75,7 @@ const FeaturesSection = () => {
             </motion.h3>
             <motion.p
               variants={fadeIn("up", 0.6 * (index + 1))}
-              className="text-gray-500 text-center"
+              className="text-gray-500 dark:text-gray-400 text-center"
             >
               {feature.description}
             </motion.p>
