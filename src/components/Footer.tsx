@@ -1,7 +1,8 @@
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
 import { useTranslation } from "react-i18next";
+
+import { fadeIn, textVariant } from "../utils/motion";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const Footer = () => {
       variants={fadeIn("up", 0.2)}
       initial="hidden"
       whileInView="show"
-      className="bg-gray-50"
+      className="bg-gray-50 dark:bg-gray-900"
     >
       <div className="section-container">
         <motion.div
@@ -56,7 +57,7 @@ const Footer = () => {
             </motion.div>
             <motion.p
               variants={fadeIn("up", 0.6)}
-              className="text-gray-600 mb-6"
+              className="text-gray-600 dark:text-gray-300 mb-6"
             >
               {t("footer-description")}
             </motion.p>
@@ -64,21 +65,21 @@ const Footer = () => {
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors"
               >
                 <FaFacebookF className="w-5 h-5" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-400 hover:text-white transition-colors"
               >
                 <FaTwitter className="w-5 h-5" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 href="#"
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-700 hover:text-white transition-colors"
               >
                 <FaLinkedinIn className="w-5 h-5" />
               </motion.a>
@@ -112,7 +113,7 @@ const Footer = () => {
                           <motion.a
                             whileHover={{ x: 5 }}
                             href={link.href}
-                            className="text-gray-600 hover:text-gray-900"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                           >
                             {link.name}
                           </motion.a>
@@ -129,7 +130,7 @@ const Footer = () => {
         {/* Copyright */}
         <motion.div
           variants={fadeIn("up", 0.8)}
-          className="border-t border-gray-200 mt-12 pt-8"
+          className="border-t border-gray-200 dark:border-gray-700 mt-12 pt-8"
         >
           <motion.div
             variants={fadeIn("up", 0.9)}
@@ -137,13 +138,13 @@ const Footer = () => {
           >
             <motion.p
               variants={fadeIn("right", 1.0)}
-              className="text-gray-600 text-sm"
+              className="text-gray-600 dark:text-gray-300 text-sm"
             >
               {t("footer-rights", { year: new Date().getFullYear() })}
             </motion.p>
             <motion.p
               variants={fadeIn("left", 1.0)}
-              className="text-gray-600 text-sm"
+              className="text-gray-600 dark:text-gray-300 text-sm"
             >
               {t("footer-created")}
             </motion.p>

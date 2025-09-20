@@ -32,7 +32,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     getInputProps,
     getWrapperProps,
   } = useSwitch({
-    isSelected: theme === "light",
+    isSelected: theme === "dark",
     onChange,
   });
 
@@ -78,7 +78,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
-        {isSelected ? (
+        {theme === "dark" ? (
           <MoonFilledIcon size={22} />
         ) : (
           <SunFilledIcon size={22} />
