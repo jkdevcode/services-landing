@@ -3,8 +3,6 @@ import { Trans, useTranslation } from "react-i18next";
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
-/* import { Chip } from "@heroui/chip"; */
-
 
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
