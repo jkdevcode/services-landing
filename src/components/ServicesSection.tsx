@@ -4,9 +4,11 @@ import { HiLightBulb } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
 import { BiTime } from "react-icons/bi";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+
 import { Button } from "@heroui/button";
 import { CheckboxGroup, Checkbox } from "@heroui/checkbox";
+
+import { fadeIn, textVariant } from "../utils/motion";
 
 const ServicesSection = () => {
   const { t } = useTranslation();
@@ -51,13 +53,13 @@ const ServicesSection = () => {
         <motion.div variants={fadeIn("right", 0.4)} className="md:w-1/3">
           <motion.h2
             variants={textVariant(0.2)}
-            className="text-3xl md:text-4xl font-bold mb-6 md:w-4/5"
+            className="text-3xl md:text-4xl font-bold mb-6 md:w-4/5 text-gray-900 dark:text-gray-100"
           >
             {t("services-title")}
           </motion.h2>
           <motion.p
             variants={fadeIn("up", 0.5)}
-            className="text-gray-600 text-lg mb-4 md:w-4/5"
+            className="text-gray-600 dark:text-gray-300 text-lg mb-4 md:w-4/5"
           >
             {t("services-subtitle")}
           </motion.p>
@@ -68,10 +70,10 @@ const ServicesSection = () => {
               defaultValue={["ux", "dev"]}
               className="gap-3"
             >
-              <Checkbox value="ux" className="text-gray-600">
+              <Checkbox value="ux" className="text-gray-600 dark:text-gray-300">
                 {t("services-list-ux")}
               </Checkbox>
-              <Checkbox value="dev" className="text-gray-600">
+              <Checkbox value="dev" className="text-gray-600 dark:text-gray-300">
                 {t("services-list-dev")}
               </Checkbox>
             </CheckboxGroup>
@@ -110,20 +112,20 @@ const ServicesSection = () => {
               </motion.div>
               <motion.h3
                 variants={textVariant(0.3)}
-                className="text-xl font-semibold mb-2"
+                className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100"
               >
                 {service.title}
               </motion.h3>
               <motion.p
                 variants={fadeIn("up", 0.5 * (index + 1))}
-                className="text-gray-600 mb-4"
+                className="text-gray-600 dark:text-gray-300 mb-4"
               >
                 {service.description}
               </motion.p>
               <motion.a
                 variants={fadeIn("up", 0.6 * (index + 1))}
                 href={service.link}
-                className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+                className="text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
               >
                 {t("service-learn-more")}
               </motion.a>
