@@ -3,6 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
+import { Chip } from "@heroui/chip";
 
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
@@ -23,14 +24,18 @@ const Hero = () => {
           whileInView="show"
         >
           {/* Star badge */}
-          <div className="flex items-center gap-2 w-fit px-4 py-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer group">
-            <span className="text-blue-600 group-hover:scale-110 transition-transform">
-              ★
-            </span>
-            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-              {t("jump-start-growth")}
-            </span>
-          </div>
+          <Chip 
+            color="default" 
+            variant="light"
+            className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 py-3 px-4 h-12"
+            startContent={
+              <span className="text-blue-600 hover:scale-110 transition-transform duration-300 hover:text-blue-700 dark:hover:text-blue-400">
+                ★
+              </span>
+            }
+          >
+            {t("jump-start-growth")}
+          </Chip>
         </motion.div>
 
         <motion.h1
