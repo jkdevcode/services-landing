@@ -38,7 +38,7 @@ const PurposeSection = () => {
             </motion.div>
             <motion.h2
               variants={textVariant(0.5)}
-              className="text-3xl md:w-4/5 md:text-4xl font-bold"
+              className="text-3xl md:w-4/5 md:text-4xl font-bold text-gray-900 dark:text-gray-100"
             >
               {t("purpose-title")}
             </motion.h2>
@@ -71,11 +71,11 @@ const PurposeSection = () => {
                     <motion.div variants={fadeIn("left", 0.4 * (index + 1))}>
                       <motion.h3
                         variants={textVariant(0.3)}
-                        className="text-xl font-semibold mb-2"
+                        className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100"
                       >
                         {feature.title}
                       </motion.h3>
-                      <motion.p variants={fadeIn("up", 0.4)} className="pb-8">
+                      <motion.p variants={fadeIn("up", 0.4)} className="pb-8 text-gray-600 dark:text-gray-300">
                         {feature.description}
                       </motion.p>
                     </motion.div>
@@ -93,7 +93,7 @@ const PurposeSection = () => {
                       py-2 px-3
                     "
                   >
-                    <p className="text-sm font-semibold">{feature.title}</p>
+                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{feature.title}</p>
                     <span className="text-xs">✨</span>
                   </CardFooter>
                 </Card>
