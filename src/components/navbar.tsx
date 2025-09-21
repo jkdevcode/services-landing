@@ -20,7 +20,7 @@ import { I18nIcon, LanguageSwitch } from "./language-switch";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
-  EmailIcon,
+  MailIcon,
   LinkedInIcon,
   GithubIcon,
   HeartFilledIcon,
@@ -93,13 +93,14 @@ export const Navbar = () => {
             href={siteConfig().links.linkedin}
             title={t("linkedin")}
           >
-            <LinkedInIcon className="text-default-500" />
+            <LinkedInIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           </Link>
           <Link isExternal href={siteConfig().links.email} title={t("email")}>
-            <EmailIcon className="text-default-500" />
+            {/* <EmailIcon className="text-default-500" /> */}
+            <MailIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           </Link>
           <Link isExternal href={siteConfig().links.github} title={t("github")}>
-            <GithubIcon className="text-default-500" />
+            <GithubIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           </Link>
           <ThemeSwitch />
           <LanguageSwitch
