@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useTranslation } from "react-i18next";
+import { Button } from "@heroui/button";
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
@@ -84,15 +85,21 @@ const FeaturesSection = () => {
       </motion.div>
 
       <motion.div variants={fadeIn("up", 0.7)} className="text-center mt-12">
-        <motion.button
+        <motion.div
           variants={fadeIn("up", 0.8)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-blue-600 text-white cursor-pointer px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors relative"
+          className="relative"
         >
-          {t("become-partner")}
-          <div className="absolute -z-10 w-full h-full rounded-full bg-blue-600/30 blur-xl top-0 left-0"></div>
-        </motion.button>
+          <Button
+            className="px-8 py-3 rounded-full font-medium relative"
+            color="primary"
+            size="lg"
+            variant="shadow"
+          >
+            {t("become-partner")}
+          </Button>
+        </motion.div>
       </motion.div>
     </motion.section>
   );
