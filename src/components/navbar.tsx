@@ -71,13 +71,22 @@ export const Navbar = () => {
               <Link
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer hover:text-primary transition-colors",
                 )}
-                color="foreground"
                 href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  const element = document.querySelector(item.href);
+
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 {item.label}
               </Link>
+
             </NavbarItem>
           ))}
         </div>

@@ -10,23 +10,19 @@ export const siteConfig = () => ({
   navItems: [
     {
       label: i18next.t("home"),
-      href: "/",
-    },
-    {
-      label: i18next.t("docs"),
-      href: "/docs",
-    },
-    {
-      label: i18next.t("pricing"),
-      href: "/pricing",
-    },
-    {
-      label: i18next.t("blog"),
-      href: "/blog",
+      href: "#home",
     },
     {
       label: i18next.t("about"),
-      href: "/about",
+      href: "#about",
+    },
+    {
+      label: i18next.t("features"),
+      href: "#features",
+    },
+    {
+      label: i18next.t("services"),
+      href: "#services",
     },
   ],
   navMenuItems: [

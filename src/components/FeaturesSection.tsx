@@ -27,6 +27,7 @@ const FeaturesSection = () => {
   return (
     <motion.section
       variants={fadeIn("up", 0.2)}
+      id="features"
       initial="hidden"
       whileInView="show"
       className="max-w-7xl mx-auto px-4 py-16"
