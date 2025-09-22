@@ -1,15 +1,37 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { Chip } from "@heroui/chip";
+import { addToast } from "@heroui/toast";
 
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = () => {
+    if (email.trim()) {
+      addToast({
+        title: "¡Correo enviado!",
+        description: "Gracias por tu interés. Te contactaremos pronto.",
+        color: "success",
+        timeout: 3000,
+        shouldShowTimeoutProgress: true,
+      });
+      setEmail("");
+    } else {
+      addToast({
+        title: "Error",
+        description: "Por favor, ingresa un correo electrónico válido.",
+        color: "danger",
+      });
+    }
+  };
 
   return (
     <section
@@ -24,8 +46,8 @@ const Hero = () => {
           whileInView="show"
         >
           {/* Star badge */}
-          <Chip 
-            color="default" 
+          <Chip
+            color="default"
             variant="light"
             className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 py-3 px-4 h-12"
             startContent={
@@ -44,15 +66,15 @@ const Hero = () => {
           variants={textVariant(0.3)}
           whileInView="show"
         >
-            <Trans
-              components={[
-                // 0 -> texto azul con subrayado ajustado al ancho del texto
-                <span className="inline-block text-blue-600 border-b-2 border-blue-200/60 dark:border-blue-400/60 pb-1" />,
-                // 1 -> emoji reloj animado
-                <span className="inline-block ml-2 animate-pulse" />,
-              ]}
-              i18nKey="hero-title"
-            />
+          <Trans
+            components={[
+              // 0 -> texto azul con subrayado ajustado al ancho del texto
+              <span className="inline-block text-blue-600 border-b-2 border-blue-200/60 dark:border-blue-400/60 pb-1" />,
+              // 1 -> emoji reloj animado
+              <span className="inline-block ml-2 animate-pulse" />,
+            ]}
+            i18nKey="hero-title"
+          />
         </motion.h1>
 
         <motion.p
@@ -72,6 +94,7 @@ const Hero = () => {
         >
           {/* Email Form */}
           <Input
+            isRequired
             className="flex-1"
             classNames={{
               inputWrapper: "h-14 px-6 rounded-xl",
@@ -80,12 +103,16 @@ const Hero = () => {
             placeholder={t("email-placeholder")}
             type="email"
             variant="bordered"
+            value={email}
+            onValueChange={setEmail}
           />
           <Button
             className="px-8 py-4 h-14 rounded-xl"
             color="primary"
             size="lg"
             variant="shadow"
+            onClick={handleSubmit}
+            isDisabled={!email.trim()}
           >
             →
           </Button>
