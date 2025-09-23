@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
@@ -31,6 +32,44 @@ import { availableLanguages } from "@/i18n";
 
 export const Navbar = () => {
   const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  // Efecto para detectar la sección activa basada en el scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = siteConfig().navItems.map((item) => item.href);
+
+      for (const section of sections) {
+        const element = document.querySelector(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Si la sección está visible en la parte superior de la ventana
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Llamar una vez al montar para establecer la sección inicial
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (href) => {
+    // Cerrar el menú móvil
+    setIsMenuOpen(false);
+
+    // Navegar a la sección
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const searchInput = (
     <Input
       aria-label={t("search")}
@@ -53,7 +92,12 @@ export const Navbar = () => {
   );
 
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar
+      maxWidth="xl"
+      position="sticky"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <Link
@@ -71,22 +115,20 @@ export const Navbar = () => {
               <Link
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium cursor-pointer hover:text-primary transition-colors",
+                  "cursor-pointer hover:text-primary transition-colors",
+                  // Aplicar estilo activo solo a la sección actual
+                  activeSection === item.href
+                    ? "text-primary font-medium"
+                    : "text-foreground"
                 )}
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-
-                  const element = document.querySelector(item.href);
-
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
+                  handleNavClick(item.href);
                 }}
               >
                 {item.label}
               </Link>
-
             </NavbarItem>
           ))}
         </div>
@@ -105,7 +147,6 @@ export const Navbar = () => {
             <LinkedInIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           </Link>
           <Link isExternal href={siteConfig().links.email} title={t("email")}>
-            {/* <EmailIcon className="text-default-500" /> */}
             <MailIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           </Link>
           <Link isExternal href={siteConfig().links.github} title={t("github")}>
@@ -150,15 +191,19 @@ export const Navbar = () => {
           {siteConfig().navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig().navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
-                href="#"
+                // Remover los colores fijos y aplicar solo el estilo activo
+                className={clsx(
+                  "w-full text-large cursor-pointer transition-colors",
+                  activeSection === item.href
+                    ? "text-primary font-medium"
+                    : "text-foreground hover:text-primary"
+                )}
+                href={item.href}
                 size="lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
               >
                 {item.label}
               </Link>

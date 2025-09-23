@@ -27,36 +27,20 @@ export const siteConfig = () => ({
   ],
   navMenuItems: [
     {
-      label: i18next.t("profile"),
-      href: "/profile",
+      label: i18next.t("home"),
+      href: "#home",
     },
     {
-      label: i18next.t("dashboard"),
-      href: "/dashboard",
+      label: i18next.t("about"),
+      href: "#about",
     },
     {
-      label: i18next.t("projects"),
-      href: "/projects",
+      label: i18next.t("features"),
+      href: "#features",
     },
     {
-      label: i18next.t("team"),
-      href: "/team",
-    },
-    {
-      label: i18next.t("calendar"),
-      href: "/calendar",
-    },
-    {
-      label: i18next.t("settings"),
-      href: "/settings",
-    },
-    {
-      label: i18next.t("help-and-feedback"),
-      href: "/help-feedback",
-    },
-    {
-      label: i18next.t("logout"),
-      href: "/logout",
+      label: i18next.t("services"),
+      href: "#services",
     },
   ],
   links: {
