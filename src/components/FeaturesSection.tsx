@@ -97,6 +97,11 @@ const FeaturesSection = () => {
             color="primary"
             size="lg"
             variant="shadow"
+            onPress={() => {
+              const subject = encodeURIComponent(t("become-partner-email-subject"));
+              const body = encodeURIComponent(t("become-partner-email-body"));
+              window.location.href = `mailto:dajozavargas@gmail.com?subject=${subject}&body=${body}`;
+            }}
           >
             {t("become-partner")}
           </Button>
