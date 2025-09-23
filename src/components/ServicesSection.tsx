@@ -86,6 +86,11 @@ const ServicesSection = () => {
             size="lg"
             variant="shadow"
             radius="full"
+            onPress={() => {
+              const subject = encodeURIComponent(t("services-email-subject"));
+              const body = encodeURIComponent(t("services-email-body"));
+              window.location.href = `mailto:dajozavargas@gmail.com?subject=${subject}&body=${body}`;
+            }}
           >
             {t("services-button")}
           </Button>

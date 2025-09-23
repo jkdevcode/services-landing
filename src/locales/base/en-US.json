@@ -64,6 +64,8 @@
   "services-subtitle": "Digital solutions to grow your online presence",
   "services-list-ux": "User experience and intuitive design",
   "services-list-dev": "Custom web development",
+  "services-email-subject": "Services inquiry",
+  "services-email-body": "Hello, I am interested in your services. I would like to know more details.\n\nThank you.",
   "services-button": "Get started",
   "service-web-title": "Web Design & Development",
   "service-web-desc": "Modern, responsive, and optimized websites for all devices.",

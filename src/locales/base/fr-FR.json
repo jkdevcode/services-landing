@@ -65,6 +65,8 @@
   "services-subtitle": "Des solutions digitales pour développer votre présence en ligne",
   "services-list-ux": "Expérience utilisateur et design intuitif",
   "services-list-dev": "Développement web personnalisé",
+  "services-email-subject": "Demande de services",
+  "services-email-body": "Bonjour, je suis intéressé par vos services. J’aimerais en savoir plus.\n\nMerci.",
   "services-button": "Commencer",
   "service-web-title": "Conception & Développement Web",
   "service-web-desc": "Sites modernes, adaptatifs et optimisés pour tous les appareils.",
