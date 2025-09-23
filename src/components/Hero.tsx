@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
 import { Input } from "@heroui/input";
@@ -6,16 +6,32 @@ import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { Chip } from "@heroui/chip";
 import { addToast } from "@heroui/toast";
+import { useForm } from "@formspree/react";
 
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const [state, handleFormSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID);
   const [email, setEmail] = useState("");
 
-  const handleSubmit = () => {
-    if (email.trim()) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!email.trim()) {
+      addToast({
+        title: "Error",
+        description: "Por favor, ingresa un correo electrónico válido.",
+        color: "danger",
+      });
+      return;
+    }
+
+    // Enviar a Formspree
+    await handleFormSubmit(e);
+    
+    if (state.succeeded) {
       addToast({
         title: "¡Correo enviado!",
         description: "Gracias por tu interés. Te contactaremos pronto.",
@@ -24,10 +40,10 @@ const Hero = () => {
         shouldShowTimeoutProgress: true,
       });
       setEmail("");
-    } else {
+    } else if (state.errors) {
       addToast({
         title: "Error",
-        description: "Por favor, ingresa un correo electrónico válido.",
+        description: "Hubo un problema al enviar el correo. Inténtalo de nuevo.",
         color: "danger",
       });
     }
@@ -86,11 +102,12 @@ const Hero = () => {
           {t("hero-subtitle")}
         </motion.p>
 
-        <motion.div
+        <motion.form
           className="flex gap-3 max-w-md"
           initial="hidden"
           variants={fadeIn("up", 0.5)}
           whileInView="show"
+          onSubmit={handleSubmit}
         >
           {/* Email Form */}
           <Input
@@ -100,6 +117,7 @@ const Hero = () => {
               inputWrapper: "h-14 px-6 rounded-xl",
               input: "text-base",
             }}
+            name="email"
             placeholder={t("email-placeholder")}
             type="email"
             variant="bordered"
@@ -110,13 +128,13 @@ const Hero = () => {
             className="px-8 py-4 h-14 rounded-xl"
             color="primary"
             size="lg"
+            type="submit"
             variant="shadow"
-            onClick={handleSubmit}
-            isDisabled={!email.trim()}
+            isDisabled={!email.trim() || state.submitting}
           >
-            →
+            {state.submitting ? "..." : "→"}
           </Button>
-        </motion.div>
+        </motion.form>
       </div>
 
       {/* Right Column - Images */}
