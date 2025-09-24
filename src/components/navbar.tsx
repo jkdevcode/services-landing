@@ -59,7 +59,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (href: any) => {
     // Cerrar el menú móvil
     setIsMenuOpen(false);
 
