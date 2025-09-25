@@ -41,6 +41,12 @@
   "hero-subtitle": "Sites web et applications rapides, sécurisés et évolutifs pour donner vie à vos idées.",
   "email-placeholder": "Votre adresse e-mail",
   "hero-image-alt": "Équipe travaillant sur des solutions digitales",
+  "toast-error-title": "Erreur",
+  "toast-error-email": "Veuillez saisir une adresse e-mail valide.",
+  "toast-error-message": "Veuillez écrire un message.",
+  "toast-error-send": "Un problème est survenu lors de l’envoi du message. Veuillez réessayer.",
+  "toast-success-title": "Message envoyé !",
+  "toast-success-desc": "Merci de nous avoir contactés. Nous vous répondrons bientôt.",
 
   "achieve-more": "ALLEZ PLUS LOIN",
   "purpose-title": "Notre objectif est de vous aider à vous démarquer en ligne",
