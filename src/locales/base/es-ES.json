@@ -40,6 +40,13 @@
   "hero-subtitle": "Desarrollo de sitios modernos, rápidos y seguros para llevar tu idea al siguiente nivel.",
   "email-placeholder": "Tu correo electrónico",
   "hero-image-alt": "Equipo trabajando en soluciones digitales",
+  "toast-error-title": "Error",
+  "toast-error-email": "Por favor, ingresa un correo electrónico válido.",
+  "toast-error-message": "Por favor, escribe un mensaje.",
+  "toast-error-send": "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
+  "toast-success-title": "¡Mensaje enviado!",
+  "toast-success-desc": "Gracias por contactarnos. Te responderemos pronto.",
+
 
   "achieve-more": "HAZ CRECER TU NEGOCIO",
   "purpose-title": "Nuestro propósito es ayudarte a destacar en internet",

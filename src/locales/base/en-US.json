@@ -40,6 +40,13 @@
   "hero-subtitle": "Websites and applications designed to be fast, secure, and scalable to take your idea to the next level.",
   "email-placeholder": "Your email address",
   "hero-image-alt": "Team working on digital solutions",
+  "toast-error-title": "Error",
+  "toast-error-email": "Please enter a valid email address.",
+  "toast-error-message": "Please write a message.",
+  "toast-error-send": "There was a problem sending your message. Please try again.",
+  "toast-success-title": "Message sent!",
+  "toast-success-desc": "Thank you for contacting us. We will reply soon.",
+
 
   "achieve-more": "ACHIEVE MORE",
   "purpose-title": "Our purpose is to help you stand out online",

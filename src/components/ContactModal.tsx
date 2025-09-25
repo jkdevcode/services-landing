@@ -7,7 +7,7 @@ import {
   ModalFooter
 } from "@heroui/modal";
 
-/* import { useTranslation } from "react-i18next"; */
+import { useTranslation } from "react-i18next";
 import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { addToast } from "@heroui/toast";
@@ -67,7 +67,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
   initialEmail = "",
   onSuccess,
 }) => {
-  /* const { t } = useTranslation(); */
+  const { t } = useTranslation();
   const [state, handleFormSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID);
   const [email, setEmail] = useState(initialEmail);
   const [message, setMessage] = useState("");
@@ -77,8 +77,8 @@ const ContactModal: React.FC<ContactModalProps> = ({
     
     if (!email.trim()) {
       addToast({
-        title: "Error",
-        description: "Por favor, ingresa un correo electrónico válido.",
+        title: t("toast-error-title"),
+        description: t("toast-error-email"),
         color: "danger",
       });
       return;
@@ -86,8 +86,8 @@ const ContactModal: React.FC<ContactModalProps> = ({
 
     if (!message.trim()) {
       addToast({
-        title: "Error",
-        description: "Por favor, escribe un mensaje.",
+        title: t("toast-error-title"),
+        description: t("toast-error-message"),
         color: "danger",
       });
       return;
@@ -103,8 +103,8 @@ const ContactModal: React.FC<ContactModalProps> = ({
     
     if (state.succeeded) {
       addToast({
-        title: "¡Mensaje enviado!",
-        description: "Gracias por contactarnos. Te responderemos pronto.",
+        title: t("toast-success-title"),
+        description: t("toast-success-desc"),
         color: "success",
         timeout: 3000,
         shouldShowTimeoutProgress: true,
@@ -115,8 +115,8 @@ const ContactModal: React.FC<ContactModalProps> = ({
       onOpenChange(false);
     } else if (state.errors) {
       addToast({
-        title: "Error",
-        description: "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
+        title: t("toast-error-title"),
+        description: t("toast-error-send"),
         color: "danger",
       });
     }
