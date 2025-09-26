@@ -10,6 +10,7 @@ import { addToast } from "@heroui/toast";
 
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/hero-image.webp";
+
 import ContactModal from "./ContactModal"; // Importamos nuestro nuevo componente
 
 const Hero = () => {
@@ -19,13 +20,14 @@ const Hero = () => {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!email.trim()) {
       addToast({
         title: "Error",
         description: "Por favor, ingresa un correo electrónico válido.",
         color: "danger",
       });
+
       return;
     }
 
@@ -48,14 +50,14 @@ const Hero = () => {
           >
             {/* Star badge */}
             <Chip
-              color="default"
-              variant="light"
               className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 py-3 px-4 h-12"
+              color="default"
               startContent={
                 <span className="text-blue-600 hover:scale-110 transition-transform duration-300 hover:text-blue-700 dark:hover:text-blue-400">
                   ★
                 </span>
               }
+              variant="light"
             >
               {t("jump-start-growth")}
             </Chip>
@@ -105,17 +107,17 @@ const Hero = () => {
               name="email"
               placeholder={t("email-placeholder")}
               type="email"
-              variant="bordered"
               value={email}
+              variant="bordered"
               onValueChange={setEmail}
             />
             <Button
               className="px-8 py-4 h-14 rounded-xl"
               color="primary"
+              isDisabled={!email.trim()}
               size="lg"
               type="submit"
               variant="shadow"
-              isDisabled={!email.trim()}
             >
               →
             </Button>
@@ -145,9 +147,9 @@ const Hero = () => {
 
       {/* Modal de contacto */}
       <ContactModal
+        initialEmail={email}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        initialEmail={email}
         onSuccess={() => setEmail("")}
       />
     </>

@@ -4,9 +4,8 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
 } from "@heroui/modal";
-
 import { useTranslation } from "react-i18next";
 import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
@@ -74,13 +73,14 @@ const ContactModal: React.FC<ContactModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!email.trim()) {
       addToast({
         title: t("toast-error-title"),
         description: t("toast-error-email"),
         color: "danger",
       });
+
       return;
     }
 
@@ -90,17 +90,19 @@ const ContactModal: React.FC<ContactModalProps> = ({
         description: t("toast-error-message"),
         color: "danger",
       });
+
       return;
     }
 
     // Crear FormData para enviar a Formspree
     const formData = new FormData();
+
     formData.append("email", email);
     formData.append("message", message);
 
     // Enviar a Formspree
     await handleFormSubmit(e);
-    
+
     if (state.succeeded) {
       addToast({
         title: t("toast-success-title"),
@@ -146,44 +148,44 @@ const ContactModal: React.FC<ContactModalProps> = ({
                 name="email"
                 placeholder="tu@email.com"
                 type="email"
-                variant="bordered"
                 value={email}
+                variant="bordered"
                 onValueChange={setEmail}
               />
               <Textarea
-                disableAutosize
                 disableAnimation
+                disableAutosize
                 isRequired
                 classNames={{
-                    /* base: "max-w-xs", */
-                    input: "resize-y min-h-[80px]",
-                  }}
+                  /* base: "max-w-xs", */
+                  input: "resize-y min-h-[80px]",
+                }}
                 endContent={
                   <MessageIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
                 }
                 label="Mensaje"
+                minRows={4}
                 name="message"
                 placeholder="Escribe tu mensaje aquí..."
-                variant="bordered"
-                minRows={4}
                 value={message}
+                variant="bordered"
                 onValueChange={setMessage}
               />
             </ModalBody>
             <ModalFooter>
-              <Button 
-                color="danger" 
-                variant="flat" 
-                onPress={onClose}
+              <Button
+                color="danger"
                 isDisabled={state.submitting}
+                variant="flat"
+                onPress={onClose}
               >
                 Cancelar
               </Button>
-              <Button 
-                color="primary" 
-                type="submit"
-                isLoading={state.submitting}
+              <Button
+                color="primary"
                 isDisabled={!email.trim() || !message.trim()}
+                isLoading={state.submitting}
+                type="submit"
               >
                 {state.submitting ? "Enviando..." : "Enviar"}
               </Button>
