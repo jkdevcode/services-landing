@@ -13,10 +13,11 @@ type Theme = typeof ThemeProps.light | typeof ThemeProps.dark;
 export const useTheme = (defaultTheme?: Theme) => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window === "undefined") return defaultTheme ?? ThemeProps.light;
-    
+
     const storedTheme = localStorage.getItem(ThemeProps.key) as Theme | null;
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches 
-      ? ThemeProps.dark 
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? ThemeProps.dark
       : ThemeProps.light;
 
     return storedTheme || defaultTheme || systemTheme;
@@ -54,10 +55,13 @@ export const useTheme = (defaultTheme?: Theme) => {
   // Initialize theme on mount
   useEffect(() => {
     const storedTheme = localStorage.getItem(ThemeProps.key) as Theme | null;
+
     if (!storedTheme) {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches 
-        ? ThemeProps.dark 
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? ThemeProps.dark
         : ThemeProps.light;
+
       _setTheme(systemTheme);
     }
   }, []);

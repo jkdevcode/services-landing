@@ -42,9 +42,11 @@ export const Navbar = () => {
 
       for (const section of sections.reverse()) {
         const element = document.querySelector(section);
+
         if (element) {
           const rect = element.getBoundingClientRect();
           const windowHeight = window.innerHeight;
+
           // Detecta si el centro de la sección está en la ventana
           if (rect.top < windowHeight / 2 && rect.bottom > windowHeight / 2) {
             setActiveSection(section);
@@ -66,6 +68,7 @@ export const Navbar = () => {
 
     // Navegar a la sección
     const element = document.querySelector(href);
+
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -94,9 +97,9 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
-      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -120,7 +123,7 @@ export const Navbar = () => {
                   // Aplicar estilo activo solo a la sección actual
                   activeSection === item.href
                     ? "text-primary font-medium"
-                    : "text-foreground"
+                    : "text-foreground",
                 )}
                 href={item.href}
                 onClick={(e) => {
@@ -197,7 +200,7 @@ export const Navbar = () => {
                   "w-full text-large cursor-pointer transition-colors",
                   activeSection === item.href
                     ? "text-primary font-medium"
-                    : "text-foreground hover:text-primary"
+                    : "text-foreground hover:text-primary",
                 )}
                 href={item.href}
                 size="lg"
