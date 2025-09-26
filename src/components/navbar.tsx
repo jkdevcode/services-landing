@@ -40,12 +40,13 @@ export const Navbar = () => {
     const handleScroll = () => {
       const sections = siteConfig().navItems.map((item) => item.href);
 
-      for (const section of sections) {
+      for (const section of sections.reverse()) {
         const element = document.querySelector(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Si la sección está visible en la parte superior de la ventana
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          const windowHeight = window.innerHeight;
+          // Detecta si el centro de la sección está en la ventana
+          if (rect.top < windowHeight / 2 && rect.bottom > windowHeight / 2) {
             setActiveSection(section);
             break;
           }
