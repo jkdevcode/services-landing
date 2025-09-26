@@ -3,34 +3,44 @@ import * as React from "react";
 import { IconSvgProps } from "@/types";
 
 export const Logo: React.FC<IconSvgProps> = ({
-  size = 32,
+  size = 30,
   height,
   ...props
 }) => (
   <svg
     fill="none"
     height={size || height}
-    viewBox="0 0 32 32"
+    transform="matrix(1, 0, 0, -1, 0, 0)"
+    viewBox="0 0 60 60"
     width={size || height}
     {...props}
   >
-    <path
-      clipRule="evenodd"
-      d="
-        M9 6
-        L9 26
-        A9 10 0 0 0 9 6
-        Z
-
-        M13 9
-        L21 18
-        L15 23
-        L12 22
-        Z
-      "
-      fill="currentColor"
-      fillRule="evenodd"
+    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+    <g
+      id="SVGRepo_tracerCarrier"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
+    <g id="SVGRepo_iconCarrier">
+      <rect
+        className="fill-white dark:fill-black"
+        height="60"
+        rx="10"
+        width="60"
+      />
+      <path
+        className="fill-[#f1f3f4] dark:fill-neutral-800"
+        d="M30,6.91,10,18.45v4L30,34l12-6.93V37.26L30,44.19,17.72,37.1,10,41.55,30,53.09l12-6.92,8-4.62V18.45Zm0,17.278-7.091-4.094L30,16l7.091,4.094Z"
+      />
+      <path
+        className="fill-[#7f778c] dark:fill-neutral-400"
+        d="M30,54.59a1.5,1.5,0,0,1-.75-.2l-20-11.54a1.5,1.5,0,0,1,0-2.6L16.97,35.8a1.5,1.5,0,0,1,1.5,0L30,42.458l10.5-6.064V29.668L30.75,35.3a1.5,1.5,0,0,1-1.5,0l-20-11.55a1.5,1.5,0,0,1-.75-1.3v-4a1.5,1.5,0,0,1,.75-1.3l20-11.54a1.5,1.5,0,0,1,1.5,0l20,11.54a1.5,1.5,0,0,1,.75,1.3v23.1a1.5,1.5,0,0,1-.75,1.3l-20,11.54A1.5,1.5,0,0,1,30,54.59ZM13,41.55l17,9.808L48.5,40.684V19.316L30,8.642,11.5,19.316v2.268L30,32.268l11.25-6.5a1.5,1.5,0,0,1,2.25,1.3V37.26a1.5,1.5,0,0,1-.75,1.3l-12,6.93a1.5,1.5,0,0,1-1.5,0L17.719,38.83ZM30,25.688a1.5,1.5,0,0,1-.75-.2l-7.091-4.094a1.5,1.5,0,0,1,0-2.6L29.25,14.7a1.5,1.5,0,0,1,1.5,0L37.841,18.8a1.5,1.5,0,0,1,0,2.6L30.75,25.487A1.5,1.5,0,0,1,30,25.688Zm-4.091-5.594L30,22.456l4.091-2.362L30,17.732Z"
+      />
+      <path
+        className="fill-[#aaadbf] dark:fill-neutral-500"
+        d="M50,19.951a1.5,1.5,0,0,1-.749-.2L30,8.642,10.75,19.75a1.5,1.5,0,0,1-1.5-2.6l20-11.54a1.5,1.5,0,0,1,1.5,0l20,11.54a1.5,1.5,0,0,1-.751,2.8Z"
+      />
+    </g>
   </svg>
 );
 
